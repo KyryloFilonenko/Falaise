@@ -21,7 +21,14 @@ void analyze_$5()
     
         for(int d = 0; d <= $3; d++)
         {
-            TFile* f = new TFile(Form("./%s/%d/%s_$4.root", simu_data[s].c_str(), d, simu_data[s].c_str()));
+            string file_path = Form("./%s/%d/%s_$4.root", simu_data[s].c_str(), d, simu_data[s].c_str());
+            
+            if (gSystem->AccessPathName(file_path.c_str())) {
+                cout << "File not found in folder: " << d << endl;
+                continue;
+            }
+
+            TFile* f = new TFile(file_path.c_str());
         	TTree* s = (TTree*) f->Get("Event");
         
         	MiEvent* Eve = new MiEvent();
@@ -81,8 +88,3 @@ void analyze_$5()
         cout << endl;
     }
 }
-
-
-
-
-
