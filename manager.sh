@@ -1,5 +1,13 @@
 #!/bin/sh
 
+# 1) Run name
+# 2) Time
+# 3) simu names
+# 4) Num fold
+# 5) Num ev
+# 6) Rm Reco (TEMP_send)
+# 7) rm brio (TEMP_send)
+
 FAL_DIR=/sps/nemo/scratch/kfilonen/Falaise
 
 if [ ! -d ${FAL_DIR}/DATA ]; then
@@ -9,7 +17,7 @@ fi
 # echo "Choose the name for your run:"
 # read RUN_NAME
 # echo "                                          " 
-RUN_NAME=Dataset_mf_2
+RUN_NAME=MagFieldCheck
 
 if [ ! -d $FAL_DIR/DATA/$RUN_NAME ]; then
     mkdir $FAL_DIR/DATA/$RUN_NAME
@@ -38,17 +46,17 @@ fi
 
 #пам'ятати про обмеження на час для різних кількостей івентів
 
-TIME=10:00 # time limit
+TIME=4:00 # time limit
 
 # echo "How many type of simulations you want to do?"
 # read NUM_SIM
 # echo "                                          "
 
-SIMU_NAME=("mf_0nu_Se82_flat" "mf_2nu_Se82_flat" "mf_Bi214_flat" "mf_Tl208_flat" "mf_0nu_Se82_bent" "mf_2nu_Se82_bent" "mf_Bi214_bent" "mf_Tl208_bent")
+SIMU_NAME=("0nu_Se82_flat" "0nu_Se82_bent")
 
-num_fol=99 # folders per simulation (+1)
+num_fol=9 # folders per simulation (+1)
 
-NUM_EV=100000  # events per folder
+NUM_EV=1000  # events per folder
 
 # скільки івентів, скільки івентів на файл
 # зміна і для "продовження", типу з 101 до 200
