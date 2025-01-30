@@ -25,10 +25,14 @@ flreconstruct -i $TUTO_FOLD/$3/Simu_$4.brio \
 rm $TUTO_FOLD/$3/Simu_$4.brio
               
 cd $TUTO_FOLD/$3/
+
+#########
+flreconstruct -i $TUTO_FOLD/$3/Reco_$4.brio -p /sps/nemo/scratch/kfilonen/SNCuts/build/SNCutsPipeline.conf -o CUT.brio
+###########
             
 flreconstruct -i $TUTO_FOLD/$3/Reco_$4.brio \
               -p $CONF_SEN/p_MiModule_v00.conf
             
 mv Default.root $4_$5.root
 
-rm $TUTO_FOLD/$3/Reco_$4.brio
+# rm $TUTO_FOLD/$3/Reco_$4.brio
