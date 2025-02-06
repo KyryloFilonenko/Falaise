@@ -18,7 +18,7 @@ This script automates the creation and management of simulation runs for the Fal
 ### Running the Script
 Execute the script using the following command:
 ```sh
-./script.sh
+./manager.sh
 ```
 You will be prompted to choose between creating a new run or updating an existing one.
 
@@ -44,20 +44,22 @@ You will be prompted to choose between creating a new run or updating an existin
 FAL_DIR
 ├── DATA
 │   ├── <RUN_NAME>
-│   │   ├── 0nu_Se82_flat
-│   │   │   ├── Setup_0nu_Se82_flat.conf
-│   │   │   ├── Simu_0nu_Se82_flat.conf
-│   │   │   ├── analyze_0nu_Se82_flat.cpp
+│   │   ├── <Setup name 1>
+│   │   │   ├── Setup_<Setup name 1>.conf
+│   │   │   ├── Simu_<Setup name 1>.conf
+│   │   │   ├── analyze_<Setup name 1>.cpp
 │   │   │   ├── <FOLDER_NUMBER>
-│   │   │   │   ├── send_0nu_Se82_flat.sh
+│   │   │   │   ├── send_<Setup name 1>.sh
 │   │   │   │   ├── OUT_<job_id>.log
-│   │   ├── 0nu_Se82_bent
-│   │   │   ├── Setup_0nu_Se82_bent.conf
-│   │   │   ├── Simu_0nu_Se82_bent.conf
-│   │   │   ├── analyze_0nu_Se82_bent.cpp
+│   │   │   │   ├── root_<Setup name 1>.root
+│   │   ├── <Setup name 2>
+│   │   │   ├── Setup_<Setup name 2>.conf
+│   │   │   ├── Simu_<Setup name 2>.conf
+│   │   │   ├── analyze_<Setup name 2>.cpp
 │   │   │   ├── <FOLDER_NUMBER>
-│   │   │   │   ├── send_0nu_Se82_bent.sh
+│   │   │   │   ├── send_<Setup name 2>.sh
 │   │   │   │   ├── OUT_<job_id>.log
+│   │   │   │   ├── root_<Setup name 2>.root
 ```
 
 ## Configuration Files
@@ -74,15 +76,7 @@ FAL_DIR
 ## Troubleshooting
 - If the script does not execute, ensure it has the proper execution permissions:
   ```sh
-  chmod +x script.sh
+  chmod 755 manager.sh
   ```
 - If jobs do not appear in Slurm, check the logs in the `OUT_<job_id>.log` files.
 - If a run with the same name exists, choose a different name or update the existing one.
-
-## Author
-- Developed by [Your Name / Team]
-- Contact: [Your Email]
-
-## License
-- [Specify License, if applicable]
-
